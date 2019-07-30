@@ -13,7 +13,7 @@ public class StackApp2 {
 
     public static void main(String[] args) {
         StackApp2 app = new StackApp2();
-        String ex = "1+2*4/2+(15/3)";
+        String ex = "1+2*4/2+15/3";
 //        app.doTrans(ex);
         app.expEvaluation(app.doTrans(ex));
 
@@ -41,7 +41,7 @@ public class StackApp2 {
                     gotParen(ch);
                     break;
                 default:
-                    while (chars[i]>'0' && chars[i]<'9'){
+                    while (i<chars.length && chars[i]>'0' && chars[i]<'9'){
                         output = output+ chars[i] ;
                         i++;
                     }
