@@ -1,7 +1,8 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
+/**
+ * 6. Z 字形变换
+ */
 public class Solution7 {
 
     public static void main(String[] args) {
