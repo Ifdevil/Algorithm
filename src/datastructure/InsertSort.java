@@ -1,20 +1,24 @@
 package datastructure;
 
 /**
- * 直接插入排序  空间复杂度O(1)，时间复杂度O(n2)
+ * 插入类排序
  */
 public class InsertSort {
 
 
     public static void main(String[] args) {
         int[] a = {2,1,3100,456,21,0,5,6,8};
-        insertSort(a,9);
+        insertSort2(a,a.length);
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
         }
     }
 
-
+    /**
+     * 直接插入排序  空间复杂度O(1)，时间复杂度O(n2)
+     * @param n
+     * @param len
+     */
     public static void insertSort(int[] n,int len){
         int i ;
         int j ;
@@ -26,6 +30,41 @@ public class InsertSort {
                     n[j+1] = n[j];
                 }
                 n[j+1] = temp;
+            }
+        }
+    }
+
+    /**
+     * 折半插入排序
+     * @param n
+     * @param len
+     */
+    public static void insertSort2(int[] n,int len){
+        int i;
+        int j;
+        int temp;
+        int low;
+        int high;
+        int mid;
+
+        for (i = 1; i < len; i++) {
+            low = 0;
+            high = i-1;
+
+            if(n[i-1] > n[i]){
+                temp = n[i];
+                while (low <= high){
+                    mid = (low + high)/2;
+                    if(n[mid]>temp){
+                        high = mid-1;
+                    }else if (n[mid] < temp){
+                        low = mid+1;
+                    }
+                }
+                for (j = i-1;j>=high+1;j--){
+                    n[j+1] = n[j];
+                }
+                n[high+1] = temp;
             }
         }
     }
